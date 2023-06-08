@@ -23,7 +23,7 @@ set $menu wofi --show drun -a -I -s ~/.config/wofi/style.css
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/3904379.jpg fill
+output * bg ~/Pictures/wallpapers/hamburg.jpg fill
 #
 # Example configuration:
 #
@@ -67,7 +67,8 @@ exec_always autotiling
 exec_always ~/.config/sway/scripts/autoname-workspaces.py
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
-exec_always dunst 
+exec_always dunst
+exec_always gsettings set org.gnome.desktop.interface icon-theme 'breeze'
 ### Key bindings
 #
 # Basics:
@@ -98,7 +99,7 @@ exec_always dunst
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # Lock screen
-bindsym $mod+Ctrl+l exec swaylock -f -i ~/Pictures/3904379,jpg
+bindsym $mod+Ctrl+l exec swaylock -f -i ~/Pictures/wallpapers/hamburg.jpg
 #
 # Moving around:
 #
@@ -236,7 +237,7 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec $menu
-
+bindsym XF86PowerOff exec wlogout
 bindsym Print exec grimshot copy output
 bindsym Shift+Print exec grimshot copy active
 bindsym Ctrl+Print exec grimshot copy area
@@ -254,7 +255,11 @@ bar {
 }
 
 default_border pixel 2
-gaps inner 10
+# default_border none
 
+client.focused #000000 #000000 #000000 #000000
+gaps inner 10
+blur enable
+corner_radius 10
 
 include /etc/sway/config.d/*

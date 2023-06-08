@@ -7,7 +7,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces",  "sway/mode", "cpu", "memory","temperature"],
     "modules-center": ["clock"],
-    "modules-right": ["pulseaudio","backlight", "battery", "sway/language", "keyboard-state","tray"],
+    "modules-right": ["pulseaudio","backlight", "battery", "sway/language", "keyboard-state","tray","custom/logout"],
 
 
     //***************************
@@ -65,7 +65,7 @@
     },
   "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "reverse-scrolling": 1, 
+        "reverse-scrolling": 1,
 	"format": "{icon} {volume}% {format_source}",
     	"format-bluetooth": "{icon} {volume}% {format_source}",
     	"format-muted": "",
@@ -107,7 +107,7 @@
 
     "backlight": {
         "device": "intel_backlight",
-        "format": "{percent}% {icon}", 
+        "format": "{percent}% {icon}",
 	"format-icons": [""],
         "min-length": 7,
     },
@@ -151,5 +151,10 @@
     "tooltip-format-ethernet": "{ifname} ",
     "tooltip-format-disconnected": "Disconnected",
     "on-click":"nmtui"
-}
+},
+"custom/logout": {
+    "format":"",
+    "on-click":"wlogout"
+    }
+
 }

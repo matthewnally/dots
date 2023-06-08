@@ -16,9 +16,9 @@ import sys
 
 WINDOW_ICONS = {
     "firefox": "",
-    "foot":"",
-    "org.kde.dolphin":"",
-    "org.darktable.Darktable":"",
+    "foot": "",
+    "org.kde.dolphin": "",
+    "org.darktable.Darktable": "",
 
 }
 
