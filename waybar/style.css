@@ -93,7 +93,21 @@ window#waybar.hidden {
     background: #000000;
 }
 
+#custom-logout {
+    padding-left: 12px;
+    padding-right: 16px;
+    margin-left: 8px;
+    border-radius: 10px 10px 10px 10px;
+    transition: none;
+    color: #ffffff;
+    background: #000000;
+}
 
+
+#custom-logout label:hover {
+    background-color: #333333;
+    color: green;
+}
 
 #pulseaudio {
     margin-right: 8px;

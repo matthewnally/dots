@@ -23,22 +23,27 @@ set $menu wofi --show drun -a -I -s ~/.config/wofi/style.css
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/wallpapers/hamburg.jpg fill
+output * bg `~/.config/sway/scripts/random_bg` fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-output eDP-1 scale 1.5
+output eDP-1 scale 1.25
+
+# xwayland display scaling
+# xwayland scale 1
+exec xsettingsd
+
 ### Idle configuration
 #
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
@@ -99,7 +104,7 @@ exec_always gsettings set org.gnome.desktop.interface icon-theme 'breeze'
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # Lock screen
-bindsym $mod+Ctrl+l exec swaylock -f -i ~/Pictures/wallpapers/hamburg.jpg
+bindsym $mod+Ctrl+l exec swaylock
 #
 # Moving around:
 #
@@ -257,9 +262,15 @@ bar {
 default_border pixel 2
 # default_border none
 
-client.focused #000000 #000000 #000000 #000000
+client.unfocused #000000 #000000 #000000 #000000
+client.focused #333333 #333333 #333333 #333333
 gaps inner 10
 blur enable
 corner_radius 10
+# layer_effects "waybar" blur enable; shadows enable;
+layer_effects "notifications" blur enable; shadows enable;
+layer_effects "gtk-layer-shell" blur enable; shadows enable;
 
-include /etc/sway/config.d/*
+
+
+include /etc/sway/config.d/*sway
