@@ -4,7 +4,8 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
-  'pylsp'
+  'pylsp',
+  'cssls',
 })
 
 -- Fix Undefined global 'vim'
@@ -57,4 +58,11 @@ lsp.setup()
 vim.diagnostic.config({
     virtual_text = true
 })
+--Enable (broadcasting) snippet capability for completion
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+require'lspconfig'.cssls.setup {
+  capabilities = capabilities,
+}
 

@@ -30,3 +30,7 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 vim.cmd("highlight ColorColumn ctermbg=235 guibg=#262626")
 vim.g.netrw_liststyle = 3
+
+
+
+
