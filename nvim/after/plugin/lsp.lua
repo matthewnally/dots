@@ -29,7 +29,7 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.set_preferences({
-    suggest_lsp_servers = false,
+    suggest_lsp_servers = true,
     sign_icons = {
         error = 'E',
         warn = 'W',
@@ -65,4 +65,5 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require'lspconfig'.cssls.setup {
   capabilities = capabilities,
 }
+vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
 
