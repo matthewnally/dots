@@ -5,8 +5,6 @@
 vim.opt.relativenumber = true -- relative line numbers
 
 -- use treesitter folding
---vim.opt.foldmethod = "expr"
---vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- install plugins
 lvim.plugins = {
