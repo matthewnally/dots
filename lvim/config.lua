@@ -8,7 +8,6 @@ vim.opt.relativenumber = true -- relative line numbers
 --vim.opt.foldmethod = "expr"
 --vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
-
 -- install plugins
 lvim.plugins = {
   "ChristianChiarulli/swenv.nvim",
@@ -16,6 +15,8 @@ lvim.plugins = {
   "mfussenegger/nvim-dap-python",
   "nvim-neotest/neotest",
   "nvim-neotest/neotest-python",
+  "sindrets/diffview.nvim",
+  event = "BufRead",
 }
 
 -- automatically install python syntax highlighting
