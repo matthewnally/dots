@@ -10,8 +10,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'tpope/surround'
-Plugin 'tpope/commentary'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary.vim'
 Plugin 'machakann/vim-highlightedyank'
 Plugin 'davidhalter/jedi-vim'
 " All of your Plugins must be added before the following line
@@ -119,9 +119,9 @@ augroup python_format
 augroup end
 
 set statusline=
-set statusline+=%#PmenuSel#
+" set statusline+=%#PmenuSel#
 set statusline+=%{StatuslineGit()}
-set statusline+=%#LineNr#
+" set statusline+=%#LineNr#
 set statusline+=\ %f
 set statusline+=%m\
 set statusline+=%=
