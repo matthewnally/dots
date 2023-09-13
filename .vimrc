@@ -1,7 +1,41 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'tpope/surround'
+Plugin 'tpope/commentary'
+Plugin 'machakann/vim-highlightedyank'
+Plugin 'davidhalter/jedi-vim'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+let g:highlightedyank_highlight_duration = 100
+
 set mouse=a
+colorscheme desert
 set nu
 set relativenumber
 
+set autoread
 
 set tabstop=4
 set softtabstop=4
@@ -20,7 +54,7 @@ set termguicolors
 set scrolloff=8 " " Minimum number of lines above and below cursor
 let g:netrw_liststyle=3
 let g:netrw_banner=0
-let g:netrw_browse_split=4
+let g:netrw_browse_split=0
 " " Set block and Insert Mode cursor
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
@@ -73,6 +107,17 @@ function! StatuslineGit()
   return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
 endfunction
 
+autocmd FileType python compiler pylint
+autocmd QuickFixCmdPost [^l]* cwindow
+
+augroup python_format
+    autocmd!
+    autocmd BufWritePost *.py silent !black % -q && isort % --profile black
+    autocmd BufWritePost *.py redraw!
+    autocmd BufWritePost *.py silent !ctags -R . &
+    autocmd BufWritePost *.py silent make! <afile> | silent redraw!
+augroup end
+
 set statusline=
 set statusline+=%#PmenuSel#
 set statusline+=%{StatuslineGit()}
@@ -87,3 +132,4 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
+
