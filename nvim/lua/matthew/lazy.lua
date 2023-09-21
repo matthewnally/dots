@@ -1,41 +1,56 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-    {"folke/which-key.nvim"},
+    { "folke/which-key.nvim" },
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.3',
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.3',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    {"folke/trouble.nvim"},
-    {"nvim-treesitter/nvim-treesitter"},
-    {"tpope/vim-fugitive"},
-    {"tpope/vim-surround"},
-    {"tpope/vim-commentary"},
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        },
+    },
+    { "nvim-treesitter/nvim-treesitter" },
+    { "tpope/vim-fugitive" },
+    { "tpope/vim-vinegar" },
+    { "tpope/vim-surround" },
+    { "tpope/vim-commentary" },
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        opts = {} -- this is equalent to setup({}) function
+    },
     {
         -- This sets sensible defaults for running lsps
-        {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
+        { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
 
         --- Uncomment these if you want to manage LSP servers from neovim
-        {'williamboman/mason.nvim'}, -- manages installing LSPs
-        {'williamboman/mason-lspconfig.nvim'}, -- sane default configs for lsp
+        { 'williamboman/mason.nvim' },           -- manages installing LSPs
+        { 'williamboman/mason-lspconfig.nvim' }, -- sane default configs for lsp
 
         -- LSP Support
         {
             'neovim/nvim-lspconfig', --simplifies lsp confih
             dependencies = {
-                {'hrsh7th/cmp-nvim-lsp'},
+                { 'hrsh7th/cmp-nvim-lsp' },
             },
         },
 
@@ -43,7 +58,7 @@ require("lazy").setup({
         {
             'hrsh7th/nvim-cmp',
             dependencies = {
-            {'L3MON4D3/LuaSnip'},
+                { 'L3MON4D3/LuaSnip' },
             }
         }
     },
@@ -55,5 +70,5 @@ require("lazy").setup({
         },
     },
 
-    {"rebelot/kanagawa.nvim"}
+    { "rebelot/kanagawa.nvim" }
 })
