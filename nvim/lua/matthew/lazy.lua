@@ -33,11 +33,11 @@ require("lazy").setup({
     { "tpope/vim-vinegar" },
     { "tpope/vim-surround" },
     { "tpope/vim-commentary" },
-    {
-        'windwp/nvim-autopairs',
-        event = "InsertEnter",
-        opts = {} -- this is equalent to setup({}) function
-    },
+    { "tpope/vim-sleuth" },                                             -- auto switches between spaces and tabs depending on file
+    { "lewis6991/gitsigns.nvim" },
+    { "j-hui/fidget.nvim" },                                            -- shows progress and logging for lsps
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- show indent marks
+
     {
         -- This sets sensible defaults for running lsps
         { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
@@ -70,5 +70,5 @@ require("lazy").setup({
         },
     },
 
-    { "rebelot/kanagawa.nvim" }
+    { "rebelot/kanagawa.nvim", lazy = false }
 })
