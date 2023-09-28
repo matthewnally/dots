@@ -33,10 +33,9 @@ require("lazy").setup({
     { "tpope/vim-vinegar" },
     { "tpope/vim-surround" },
     { "tpope/vim-commentary" },
-    { "tpope/vim-sleuth" },                                             -- auto switches between spaces and tabs depending on file
+    { "tpope/vim-sleuth" },  -- auto switches between spaces and tabs depending on file
     { "lewis6991/gitsigns.nvim" },
-    { "j-hui/fidget.nvim" },                                            -- shows progress and logging for lsps
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }, -- show indent marks
+    { "j-hui/fidget.nvim" }, -- shows progress and logging for lsps
 
     {
         -- This sets sensible defaults for running lsps

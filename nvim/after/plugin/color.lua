@@ -1,4 +1,6 @@
 require('kanagawa').setup({
-    dimInactive = true
+    dimInactive = false
 })
+
+
 vim.cmd("colorscheme kanagawa")
