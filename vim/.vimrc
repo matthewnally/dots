@@ -83,6 +83,8 @@ nnoremap N nzzzv
 xnoremap <leader>p \"_dP
 nnoremap <leader>d \"_dP
 vnoremap <leader>d \"_dP
+xnoremap <leader>y "*y
+nnoremap <leader>y "*y
 
 " Disables Ex mode with Q
 nnoremap Q <nop>
@@ -94,6 +96,8 @@ nnoremap <leader>s :%s/
 " Remove highlights with c l
 nnoremap <silent> <C-l> :nohl<CR>
 
+" Open Config
+nnoremap <silent> <leader>C :e ~/.config/vim/.vimrc<CR>
 
 " Statusline setup with git branch
 set laststatus=2
@@ -119,3 +123,10 @@ set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
 
+" Vim Specific Settings
+if !has('nvim')
+    augroup python
+        autocmd!
+        autocmd BufWritePre *.py :%!black - -q 2>/dev/null | isort - --profile=black 2>/dev/null
+    augroup end
+endif 

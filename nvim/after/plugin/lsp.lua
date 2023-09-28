@@ -30,6 +30,9 @@ cmp.setup({
     completion = {
         completeopt = 'menu,menuone,noinsert'
     },
+    mapping = cmp.mapping.preset.insert({
+        ['<tab>'] = cmp.mapping.confirm({ select = false }),
+    })
 })
 
 
