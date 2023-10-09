@@ -14,8 +14,8 @@
 
 --vim.opt.swapfile = false
 --vim.opt.backup = false
---vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
---vim.opt.undofile = true
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
 
 --vim.opt.hlsearch = true
 --vim.opt.incsearch = true
@@ -31,7 +31,3 @@
 --vim.opt.colorcolumn = "80"
 --vim.cmd("highlight ColorColumn ctermbg=235 guibg=#262626")
 --vim.g.netrw_liststyle = 3
-
-
-
-

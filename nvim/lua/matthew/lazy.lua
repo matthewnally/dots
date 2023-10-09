@@ -36,6 +36,8 @@ require("lazy").setup({
     { "tpope/vim-sleuth" },  -- auto switches between spaces and tabs depending on file
     { "lewis6991/gitsigns.nvim" },
     { "j-hui/fidget.nvim" }, -- shows progress and logging for lsps
+    { "mbbill/undotree" },   -- show undo history in tree with :UndotreeToggle
+    { "jiangmiao/auto-pairs" },
 
     {
         -- This sets sensible defaults for running lsps
@@ -68,6 +70,5 @@ require("lazy").setup({
             "nvimdev/guard-collection",
         },
     },
-
     { "rebelot/kanagawa.nvim", lazy = false }
 })

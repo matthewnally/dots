@@ -55,6 +55,8 @@ let g:netrw_liststyle=3 " Tree based list
 nnoremap <leader>ef :Ex<CR>
 " Find buffers
 nnoremap <leader>fb :ls<CR>:b
+nnoremap <tab> :bnext<CR>
+nnoremap <s-tab> :bprev<CR>
 " Find files fuzzy
 nnoremap <leader>ff :find
 
@@ -129,4 +131,4 @@ if !has('nvim')
         autocmd!
         autocmd BufWritePre *.py :%!black - -q 2>/dev/null | isort - --profile=black 2>/dev/null
     augroup end
-endif 
+endif
