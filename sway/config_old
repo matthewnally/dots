@@ -23,8 +23,7 @@ set $menu wofi --show drun -a -I -s ~/.config/wofi/style.css
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg `~/.config/sway/scripts/random_bg` fill
-output * bg #FFCD4B solid_color
+output * bg `~/.config/sway/scripts/random_bg` fill
 #
 # Example configuration:
 #
@@ -260,19 +259,14 @@ bar {
 	swaybar_command waybar
 }
 
-default_border pixel 5
-
-shadows enable
-shadow_blur_radius 15
-shadow_color #000000FF
-shadow_color #FF4B91
-# default_border none
+# default_border pixel 2
+default_border none
 
 client.unfocused #000000 #000000 #000000 #000000
-client.focused #0802A3 #0802A3 #0802A3 #0802A3
+client.focused #333333 #333333 #333333 #333333
 gaps inner 10
-# blur enable
-corner_radius 20
+blur enable
+corner_radius 10
 # layer_effects "waybar" blur enable; shadows enable;
 layer_effects "notifications" blur enable; shadows enable;
 layer_effects "gtk-layer-shell" blur enable; shadows enable;

@@ -20,7 +20,7 @@ set smartindent
 set nowrap
 
 set hlsearch
-set nohlsearch " Disables hlsearch on startup
+" set nohlsearch " Disables hlsearch on startup
 set incsearch
 
 set termguicolors
@@ -79,14 +79,14 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 " Center cursor while searching
 nnoremap n nzzzv
-nnoremap N nzzzv
+nnoremap N Nzzzv
 
 " Paste and delete to void registry
 xnoremap <leader>p \"_dP
 nnoremap <leader>d \"_dP
 vnoremap <leader>d \"_dP
-xnoremap <leader>y "*y
-nnoremap <leader>y "*y
+xnoremap <leader>y "+y
+nnoremap <leader>y "+y
 
 " Disables Ex mode with Q
 nnoremap Q <nop>

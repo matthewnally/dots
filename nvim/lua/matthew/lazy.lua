@@ -37,7 +37,6 @@ require("lazy").setup({
     { "lewis6991/gitsigns.nvim" },
     { "j-hui/fidget.nvim" }, -- shows progress and logging for lsps
     { "mbbill/undotree" },   -- show undo history in tree with :UndotreeToggle
-    { "jiangmiao/auto-pairs" },
 
     {
         -- This sets sensible defaults for running lsps
