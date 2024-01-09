@@ -1,6 +1,6 @@
 #!/bin/bash
 
-entries="Summer-Day\nSummer-Night"
+entries="Summer-Day\nSummer-Night\nTown-Serif"
 source='source = ~/.config/hypr/themes/'
 hyprland-conf=~/.config/hypr/hyprland.conf
 # delete-line="$(sed -i '1d' ~/.config/hypr/hyprland.conf)"
@@ -17,5 +17,10 @@ case $selected in
     notify-send "Summer-Night"
     sed -i '1d' ~/.config/hypr/hyprland.conf
     sed -i '1i\source = ~/.config/hypr/themes/summer-night/summer-night.conf' ~/.config/hypr/hyprland.conf
+    ;;
+  Town-Serif)
+    notify-send "Town-Serif"
+    sed -i '1d' ~/.config/hypr/hyprland.conf
+    sed -i '1i\source = ~/.config/hypr/themes/town-serif/town-serif.conf' ~/.config/hypr/hyprland.conf
     ;;
 esac

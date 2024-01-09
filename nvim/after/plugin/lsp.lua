@@ -48,7 +48,7 @@ local ft = require('guard.filetype')
 --:extra({ "--profile", "black" })
 ft("python"):fmt("black"):append("isort"):lint("flake8"):extra("--max-line-length=200")
 
-ft('typescript,javascript,typescriptreact'):fmt('prettier')
+ft('typescript,javascript,typescriptreact,prettier'):fmt('prettier')
 
 -- Call setup() LAST!
 require('guard').setup({
