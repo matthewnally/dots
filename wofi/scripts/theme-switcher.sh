@@ -1,26 +1,16 @@
 #!/bin/bash
 
-entries="Summer-Day\nSummer-Night\nTown-Serif"
-source='source = ~/.config/hypr/themes/'
-hyprland-conf=~/.config/hypr/hyprland.conf
-# delete-line="$(sed -i '1d' ~/.config/hypr/hyprland.conf)"
+source=~/.config/hypr/themes/
+style=~/.config/wofi/themes/$1.css
 
-selected=$(echo -e $entries|wofi --dmenu $2 --style ~/.config/wofi/themes/$1.css --hide-scroll --cache-file /dev/null)
+if [[ ! -f "$style" ]];
+then
+  notify-send "No wofi theme for $1"
+fi
 
-case $selected in
-  Summer-Day)
-    notify-send "Summer-Day"
-    sed -i '1d' ~/.config/hypr/hyprland.conf
-    sed -i '1i\source = ~/.config/hypr/themes/summer-day/summer-day.conf' ~/.config/hypr/hyprland.conf
-    ;;
-  Summer-Night)
-    notify-send "Summer-Night"
-    sed -i '1d' ~/.config/hypr/hyprland.conf
-    sed -i '1i\source = ~/.config/hypr/themes/summer-night/summer-night.conf' ~/.config/hypr/hyprland.conf
-    ;;
-  Town-Serif)
-    notify-send "Town-Serif"
-    sed -i '1d' ~/.config/hypr/hyprland.conf
-    sed -i '1i\source = ~/.config/hypr/themes/town-serif/town-serif.conf' ~/.config/hypr/hyprland.conf
-    ;;
-esac
+selected=$(ls $source -1 |wofi --dmenu $2 --style $style --hide-scroll --cache-file /dev/null)
+if [[ -n "$selected" ]];
+then
+  sed -i '1d' ~/.config/hypr/hyprland.conf
+  sed -i "1i\\\$THEME=$selected" ~/.config/hypr/hyprland.conf
+fi

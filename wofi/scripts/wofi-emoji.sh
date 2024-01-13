@@ -1,4 +1,5 @@
 #!/bin/bash
+echo  "wofi --show dmenu $2 --style $HOME/.config/wofi/themes/$1.css -i | cut -d ' ' -f 1 | tr -d '\n')"
 emoji="$(sed '1,/^### DATA ###$/d' $0 | wofi --show dmenu $2 --style $HOME/.config/wofi/themes/$1.css -i | cut -d ' ' -f 1 | tr -d '\n')"
 wtype "${emoji}" || wl-copy "${emoji}"
 exit

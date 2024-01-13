@@ -22,6 +22,16 @@
       "persistent_workspaces": {
           "1": [],
       },
+      "format":"{id}:{windows}",
+      "window-rewrite": {
+    "firefox": "",
+    "brave":"󰇩",
+    "foot": "",
+    "code": "󰨞",
+    "darktable":"󰄄",
+    "dolphin":"󰉋",
+    "obsidian":"󰎞",
+    },
   },
 
   "custom/launcher": {

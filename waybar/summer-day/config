@@ -8,7 +8,8 @@
   "position": "top",
   "output": "eDP-1",
   "spacing": 15,
-  "modules-left": ["custom/launcher", "clock", "clock#date"],
+
+  "modules-left": ["custom/launcher","clock","clock#date"],
   "modules-center": ["hyprland/workspaces"],
   "modules-right": ["pulseaudio", "network", "battery", "custom/powermenu"],
 
@@ -20,22 +21,23 @@
       "on-scroll-down": "hyprctl dispatch workspace e-1",
       "persistent_workspaces": {
           "1": [],
-          "2": [],
-          "3": [],
-          "4": [],
-          "5": [],
-          "6": [],
-          "7": [],
-          "8": [],
-          "9": [],
-          "10": []
       },
+      "format":"{id}:{windows}",
+      "window-rewrite": {
+    "firefox": "",
+    "brave":"󰇩",
+    "foot": "",
+    "code": "󰨞",
+    "darktable":"󰄄",
+    "dolphin":"󰉋",
+    "obsidian":"󰎞",
+    },
   },
 
   "custom/launcher": {
       "interval": "once",
       "format": "󰣇",
-      "on-click": "pkill wofi || wofi --show drun --term=kitty --width=35% --height=50% --columns 1 -I -s ~/.config/wofi/themes/everforest-light.css -o $MAIN_DISPLAY",
+      "on-click": "pkill wofi || wofi --show drun --term=kitty --width=35% --height=50% --columns 1 -I -s ~/.config/wofi/themes/everforest.css -o $MAIN_DISPLAY",
       "tooltip": false
     },
 
@@ -67,8 +69,8 @@
   "pulseaudio": {
       "format": "{icon} {volume}%",
       "format-bluetooth": "{icon}  {volume}%",
-      "format-bluetooth-muted": "婢  muted",
-      "format-muted": "婢 muted",
+      "format-bluetooth-muted": "󰝟  muted",
+      "format-muted": "󰝟  muted",
       "format-icons": {
           "headphone": "",
           "hands-free": "",
@@ -85,7 +87,7 @@
 "network": {
       "format-wifi": " {signalStrength}%",
       "format-ethernet": " {signalStrength}%",
-      "format-disconnected": "󰤭",
+      "format-disconnected": "󰤭 ",
       "on-click": "sh ~/.config/wofi/scripts/wifimenu.sh"
 },
 
@@ -101,11 +103,11 @@
     "format": "{icon} {capacity}%",
     "format-warning": "{icon} {capacity}%",
     "format-critical": "{icon} {capacity}%",
-    "format-charging": " {capacity}%",
+    "format-charging": "󱐋 {capacity}%",
     "format-plugged": " {capacity}%",
     "format-alt": "{icon} {capacity}%",
     "format-full": " 100%",
-    "format-icons": ["", "", "", "", "", "", "", "", "", ""]
+    "format-icons": [" "," "," "," "," "]
 },
 
 "clock": {
@@ -118,7 +120,7 @@
 
 "custom/powermenu": {
     "format": "",
-    "on-click": "pkill wofi || sh .config/wofi/scripts/powermenu.sh 'everforest-light'",
+    "on-click": "pkill wofi || sh .config/wofi/scripts/powermenu.sh 'everforest'",
     "tooltip": false
   }
 }

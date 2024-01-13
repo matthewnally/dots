@@ -38,6 +38,7 @@ require("lazy").setup({
     { "j-hui/fidget.nvim" },    -- shows progress and logging for lsps
     { "mbbill/undotree" },      -- show undo history in tree with :UndotreeToggle
     { "thePrimeagen/harpoon" }, --fast file navigation with shortcuts
+    { 'norcalli/nvim-colorizer.lua' },
 
     {
         -- This sets sensible defaults for running lsps
@@ -59,9 +60,15 @@ require("lazy").setup({
         {
             'hrsh7th/nvim-cmp',
             dependencies = {
-                { 'L3MON4D3/LuaSnip' },
+                {
+                    "L3MON4D3/LuaSnip",
+                    -- follow latest release.
+                    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+                    -- install jsregexp (optional!).
+                    build = "make install_jsregexp"
+                },
             }
-        }
+        },
     },
     {
         "nvimdev/guard.nvim", --provides linting/formatting without an lsp
