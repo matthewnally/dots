@@ -14,7 +14,7 @@ fi
 
 # Query amixer for the current volume and whether or not the speaker is muted
 brightness="$(light -G | cut -d'.' -f1 )"
-dunstify -a "changeBrightness" -u low -i /usr/share/icons/Adwaita/32x32/status/display-brightness-symbolic.symbolic.png  -h string:x-dunst-stack-tag:$msgTag -h int:value:"$brightness" "Brightness" -h string:hlcolor:#2d353b
+dunstify -a "changeBrightness" -u low -i /usr/share/icons/Adwaita/symbolic/status/display-brightness-symbolic.svg  -h string:x-dunst-stack-tag:$msgTag -h int:value:"$brightness" "Brightness"
 
 echo "heere"
 

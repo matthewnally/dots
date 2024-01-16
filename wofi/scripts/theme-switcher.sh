@@ -8,7 +8,7 @@ then
   notify-send "No wofi theme for $1"
 fi
 
-selected=$(ls $source -1 |wofi --dmenu $2 --style $style --hide-scroll --cache-file /dev/null)
+selected=$(ls $source -1 |wofi --dmenu --style $style --hide-scroll --cache-file /dev/null)
 if [[ -n "$selected" ]];
 then
   sed -i '1d' ~/.config/hypr/hyprland.conf

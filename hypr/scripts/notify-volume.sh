@@ -31,12 +31,12 @@ volume="$(pactl get-sink-volume @DEFAULT_SINK@ | head -n 1| awk '{print substr($
 mute="$(pactl get-sink-mute @DEFAULT_SINK@ | sed 's/.* //g')"
 if [[ $volume == 0 || "$mute" == "yes" ]]; then
     # Show the sound muted notification
-    dunstify -a "changeVolume" -u low -i /usr/share/icons/Adwaita/32x32/status/audio-volume-muted-symbolic.symbolic.png  -h string:x-dunst-stack-tag:$msgTag \
-    -h int:value:"$volume" "Muted" -h string:hlcolor:#2d353b
+    dunstify -a "changeVolume" -u low -i /usr/share/icons/Adwaita/symbolic/status/audio-volume-muted-symbolic.svg  -h string:x-dunst-stack-tag:$msgTag \
+    -h int:value:"$volume" "Muted"
     else
     # Show the volume notification
-    dunstify -a "changeVolume" -u low -i /usr/share/icons/Adwaita/32x32/status/audio-volume-medium-symbolic.symbolic.png -h string:x-dunst-stack-tag:$msgTag \
-    -h int:value:"$volume" "${volume}%" -h string:hlcolor:#2d353b
+    dunstify -a "changeVolume" -u low -i /usr/share/icons/Adwaita/symbolic/status/audio-volume-medium-symbolic.svg -h string:x-dunst-stack-tag:$msgTag \
+    -h int:value:"$volume" "${volume}%"
 fi
 
 # Play the volume changed sound

@@ -1,6 +1,7 @@
 #!/bin/bash
-echo  "wofi --show dmenu $2 --style $HOME/.config/wofi/themes/$1.css -i | cut -d ' ' -f 1 | tr -d '\n')"
-emoji="$(sed '1,/^### DATA ###$/d' $0 | wofi --show dmenu $2 --style $HOME/.config/wofi/themes/$1.css -i | cut -d ' ' -f 1 | tr -d '\n')"
+# emoji=$(sed '1,/^### DATA ###$/d' $0 | wofi --dmenu --pre-display-cmd "echo %s | cut -d ' ' -f 1" -s ~/.config/wofi/themes/$1.css -i  | cut -d ' ' -f 1 | tr -d '\n')
+emoji=$(sed '1,/^### DATA ###$/d' $0 | wofi --dmenu -s ~/.config/wofi/themes/$1.css -i  | cut -d ' ' -f 1 | tr -d '\n')
+# emoji=$(sed '1,/^### DATA ###$/d' $0 | wofi --show dmenu --pre-display-cmd "ech %s" -s ~/.config/wofi/themes/$1.css -i  | cut -d ' ' -f 1 | tr -d '\n')
 wtype "${emoji}" || wl-copy "${emoji}"
 exit
 ### DATA ###

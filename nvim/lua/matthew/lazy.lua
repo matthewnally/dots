@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     { "folke/which-key.nvim" },
+    { "stevearc/oil.nvim" }, -- file mamanger based on vim vinegar
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.3',
@@ -30,7 +31,7 @@ require("lazy").setup({
     },
     { "nvim-treesitter/nvim-treesitter" },
     { "tpope/vim-fugitive" },
-    { "tpope/vim-vinegar" },
+    -- { "tpope/vim-vinegar" },
     { "tpope/vim-surround" },
     { "tpope/vim-commentary" },
     { "tpope/vim-sleuth" },     -- auto switches between spaces and tabs depending on file
