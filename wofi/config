@@ -6,3 +6,6 @@ insensitive=true
 location=center
 no_actions=true
 prompt=Search
+hide_search=false
+dynamic_lines=true
+single_click=true
