@@ -1,14 +1,12 @@
 #!/bin/sh
 
 bat=/sys/class/power_supply/BAT0
-CRIT=${1:-15}
-echo $CRIT
+CRIT=${1:-10}
 
 FILE=~/.config/waybar/scripts/notified
 
 stat=$(cat $bat/status)
 perc=$(cat $bat/capacity)
-echo $perc
 
 if [[ $perc -le $CRIT ]] && [[ $stat == "Discharging" ]]; then
   if [[ ! -f "$FILE" ]]; then

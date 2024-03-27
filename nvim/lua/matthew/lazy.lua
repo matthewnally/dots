@@ -14,7 +14,8 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     { "folke/which-key.nvim" },
-    { "stevearc/oil.nvim" }, -- file mamanger based on vim vinegar
+    { "stevearc/oil.nvim" },    -- file mamanger based on vim vinegar
+    { "lambdalisue/suda.vim" }, -- write sudo file with :SudaWrite
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.3',
@@ -71,12 +72,12 @@ require("lazy").setup({
             }
         },
     },
+    { "nvimtools/none-ls.nvim" },
     {
-        "nvimdev/guard.nvim", --provides linting/formatting without an lsp
-        -- Builtin configuration, optional
-        dependencies = {
-            "nvimdev/guard-collection",
-        },
+        "lervag/vimtex",
+        init = function()
+            -- Use init for configuration, don't use the more common "config".
+        end
     },
     { "rebelot/kanagawa.nvim", lazy = false }
 })
