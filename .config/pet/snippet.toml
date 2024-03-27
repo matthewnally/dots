@@ -1,0 +1,14 @@
+[[snippets]]
+  description = "Resource Monitor"
+  command = "btop"
+  output = ""
+
+[[snippets]]
+  description = "Spreadsheet"
+  command = "sc-im"
+  output = ""
+
+[[snippets]]
+  description = "CSV viewer"
+  command = "column -s, -t  <csv> | less -#2 -N -S"
+  output = ""

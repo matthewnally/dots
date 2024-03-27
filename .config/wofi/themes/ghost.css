@@ -1,0 +1,89 @@
+@define-color fg0 #ffffff;
+@define-color fg1 #cccccc;
+@define-color bg0 #333333;
+@define-color bg1 #555555;
+
+@define-color red #f85552;
+@define-color orange #f57d26;
+@define-color yellow #dfa000;
+@define-color green #8da101;
+@define-color aqua #35a77c;
+@define-color blue #3a94c5;
+@define-color purple #df69ba;
+@define-color grey0 #a6b0a0;
+@define-color grey1 #939f91;
+@define-color grey2 #829181;
+
+* {
+	font-family: JetBrainsMono, Nerd Font, FontAwesome;
+	font-size: 17px;
+	border-radius: 10px;
+	border: none;
+}
+
+window {
+	margin: 0px;
+	background-color: @bg0;
+	color: @fg1;
+
+	border-radius: 15px;
+
+	/* border-bottom-width: 5px; */
+	/* border-bottom-color: @fg; */
+	/* border-bottom-style: solid; */
+}
+
+#outer-box {
+	margin: 0px;
+	border-radius: 0px;
+}
+
+#input {
+	background-color: @bg1;
+	color: @fg1;
+
+	margin: 15px;
+	padding: 10px;
+	border: none;
+
+	/* border-bottom-width: 5px; */
+	/* border-bottom-color: #bg1; */
+	/* border-bottom-style: solid; */
+}
+
+#inner-box {
+	margin: 20px;
+	padding: 0px;
+	/* background-color: #000000; */
+}
+
+#scroll {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+}
+
+#text {
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+#entry {
+	border: none;
+	padding: 10px;
+	margin: 0px;
+}
+
+#entry:selected {
+	background-color: @bg1;
+	color: @fg0;
+
+	/* border-bottom-width: 5px; */
+	/* border-bottom-color: #bg0; */
+	/* border-bottom-style: solid; */
+}
+
+#text:selected {
+
+	color: @fg;
+}
