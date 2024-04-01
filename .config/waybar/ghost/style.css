@@ -1,7 +1,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: JetBrainsMono, Nerd Font, FontAwesome;
+    font-family: Iosevka Nerd Font Propo;
     font-size: 13px;
     min-height: 0;
 }
@@ -61,7 +61,6 @@ window#waybar {
     color: red;
 }
 
-#battery.charging {}
 
 @keyframes blink {
     to {
@@ -71,7 +70,7 @@ window#waybar {
 }
 
 #battery.warning:not(.charging) {
-    color: white;
+    color: red;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;

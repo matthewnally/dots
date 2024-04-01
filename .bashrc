@@ -40,5 +40,77 @@ export PS1="\e[0;34m[\u@\h \W]\]\$ \e[0m\]"
 export PS1="\$ "
 bind "'\C-f':'tmux-sessionizer\n'"
 export PATH="/home/matthew/.local/bin:$PATH"
+export PATH="/home/matthew/.local/scripts:$PATH"
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+
+function cd() {
+  builtin cd "$@"
+
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    ## If env folder is found then activate the vitualenv
+      if [[ -d ./.venv ]] ; then
+        source ./.venv/bin/activate
+      fi
+  else
+    ## check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate
+      parentdir="$(dirname "$VIRTUAL_ENV")"
+      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+        deactivate
+      fi
+  fi
+}
+
+
+# Define foreground color variables
+black='\033[0;30m\]'
+red='\033[0;31m\]'
+green='\033[0;32m\]'
+yellow='\033[0;33m\]'
+blue='\033[0;34m\]'
+magenta='\033[0;35m\]'
+cyan='\033[0;36m\]'
+white='\033[0;37m\]'
+
+# Reset color
+reset_color='\033[0m'
+
+parse_git_branch() {
+	echo "$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /')"
+}
+
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+parse_virtualenv() {
+    if [ -n "$VIRTUAL_ENV" ]; then
+        echo "$(basename "$VIRTUAL_ENV") "
+    fi
+}
+
+get_username_host() {
+    echo "\u@\h"
+}
+
+get_working_directory() {
+    echo "\w"
+}
+
+get_prompt_symbol() {
+    if [ $? -eq 0 ]; then
+        echo "${white}\$ "  # default color if last command succeeded
+    else
+        echo "${red}\$ "  # red if last command failed
+    fi
+}
+
+
+
+PS1="╭──(${blue}$(get_username_host)${reset_color} ${yellow}\$(parse_git_branch)${cyan}\$(parse_virtualenv)${magenta}$(get_working_directory)${reset_color})\n╰─$ "
+
+
+source /usr/share/fzf/shell/key-bindings.bash
+
+
+

@@ -32,14 +32,13 @@ require("lazy").setup({
     },
     { "nvim-treesitter/nvim-treesitter" },
     { "tpope/vim-fugitive" },
-    -- { "tpope/vim-vinegar" },
     { "tpope/vim-surround" },
     { "tpope/vim-commentary" },
-    { "tpope/vim-sleuth" },     -- auto switches between spaces and tabs depending on file
+    { "tpope/vim-sleuth" },             -- auto switches between spaces and tabs depending on file
     { "lewis6991/gitsigns.nvim" },
-    { "j-hui/fidget.nvim" },    -- shows progress and logging for lsps
-    { "mbbill/undotree" },      -- show undo history in tree with :UndotreeToggle
-    { "thePrimeagen/harpoon" }, --fast file navigation with shortcuts
+    { "j-hui/fidget.nvim" },            -- shows progress and logging for lsps
+    { "mbbill/undotree" },              -- show undo history in tree with :UndotreeToggle
+    { "j-morano/buffer_manager.nvim" }, --fast file navigation with shortcuts
     { 'norcalli/nvim-colorizer.lua' },
 
     {

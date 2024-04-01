@@ -1,4 +1,4 @@
-vim.cmd('source ~/.config/vim/.vimrc')
+vim.cmd('source ~/.config/vim/vimrc')
 
 require("matthew.set")
 require("matthew.remap")
