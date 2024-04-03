@@ -1,8 +1,8 @@
 vim.cmd('source ~/.config/vim/vimrc')
 
+require("matthew.lazy")
 require("matthew.set")
 require("matthew.remap")
-require("matthew.lazy")
 
 local augroup = vim.api.nvim_create_augroup
 local MatthewGroup = augroup('Matthew', {})

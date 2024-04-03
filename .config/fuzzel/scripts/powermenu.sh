@@ -6,7 +6,7 @@ selected=$(echo -e $entries|fuzzel --dmenu -l 5  | awk '{print tolower($2)}')
 
 case $selected in
   lock)
-    exec swaylock;;
+    exec hyprlock;;
   logout)
     exec hyprctl dispatch exit NOW;;
   suspend)

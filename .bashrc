@@ -1,4 +1,4 @@
-# .bashrc
+
 unset -f command_not_found_handle
 
 # Source global definitions
@@ -32,7 +32,7 @@ function pet-select() {
 }
 bind -x '"\C-x\C-r": pet-select'
 
-unset rc
+# unset rc
 . "$HOME/.cargo/env"
 
 
@@ -110,7 +110,7 @@ get_prompt_symbol() {
 PS1="╭──(${blue}$(get_username_host)${reset_color} ${yellow}\$(parse_git_branch)${cyan}\$(parse_virtualenv)${magenta}$(get_working_directory)${reset_color})\n╰─$ "
 
 
-source /usr/share/fzf/shell/key-bindings.bash
-
+# source /usr/share/fzf/shell/key-bindings.bash
+eval "$(fzf --bash)"
 
 
