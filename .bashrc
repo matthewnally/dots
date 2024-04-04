@@ -13,6 +13,10 @@ then
 fi
 export PATH
 
+. "$HOME/.cargo/env"
+export PATH="/home/matthew/.local/bin:$PATH"
+export PATH="/home/matthew/.local/scripts:$PATH"
+
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 # export SYSTEMD_PAGER=
 
@@ -25,24 +29,23 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
-function pet-select() {
-  BUFFER=$(pet search --query "$READLINE_LINE")
-  READLINE_LINE=$BUFFER
-  READLINE_POINT=${#BUFFER}
-}
+
+# BINDS
 bind -x '"\C-x\C-r": pet-select'
-
-# unset rc
-. "$HOME/.cargo/env"
-
-
-export PS1="\e[0;34m[\u@\h \W]\]\$ \e[0m\]"
-export PS1="\$ "
 bind "'\C-f':'tmux-sessionizer\n'"
-export PATH="/home/matthew/.local/bin:$PATH"
-export PATH="/home/matthew/.local/scripts:$PATH"
 
+# source /usr/share/fzf/shell/key-bindings.bash
+eval "$(fzf --bash)"
+# unset rc
+
+
+# ALIASES
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias diff='diff --color=auto'
+alias tree='tree -C'
+alias ping='ping -c'
+alias make='make --color'
+alias ip='ip -color=auto'
 
 
 function cd() {
@@ -109,8 +112,15 @@ get_prompt_symbol() {
 
 PS1="╭──(${blue}$(get_username_host)${reset_color} ${yellow}\$(parse_git_branch)${cyan}\$(parse_virtualenv)${magenta}$(get_working_directory)${reset_color})\n╰─$ "
 
+# fixes resizing
+shopt -s checkwinsize
 
-# source /usr/share/fzf/shell/key-bindings.bash
-eval "$(fzf --bash)"
+# Tab complete in one tab instead of two
+set show-all-if-ambiguous on
 
 
+function pet-select() {
+  BUFFER=$(pet search --query "$READLINE_LINE")
+  READLINE_LINE=$BUFFER
+  READLINE_POINT=${#BUFFER}
+}

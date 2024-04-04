@@ -3,6 +3,7 @@
 .bash_history
 .bash_logout
 .bash_profile
+.git-credentials
 .cache/
 .cargo/
 .config/dconf/
@@ -23,3 +24,7 @@
 .viminfo
 Pictures/
 dev/
+.config/copyq/
+.config/mimeapps.list
+.mozilla/
+notes/
