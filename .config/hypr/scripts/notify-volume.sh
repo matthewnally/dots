@@ -1,13 +1,14 @@
 #!/bin/bash
 # changeVolume
+export PATH="/home/matthew/.local/scripts:$PATH"
 
 # Arbitrary but unique message tag
 msgTag="myvolume"
 
 # Change the volume using alsa(might differ if you use pulseaudio)
 # amixer -c 0 set Master "$@" > /dev/null
-mute="$(pulsemixer --get-mute)"
-volume="$(pulsemixer --get-volume | awk '{print $1}')"
+mute=$(pulsemixer --get-mute)
+volume=$(pulsemixer --get-volume | awk '{print $1}')
 if [[ "$1" == "up" && $volume -lt 100 ]] then
     if [[ "$mute" == 1 ]] then
 	pulsemixer --unmute

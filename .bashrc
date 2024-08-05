@@ -81,6 +81,27 @@ white='\033[0;37m\]'
 # Reset color
 reset_color='\033[0m'
 
+function cd() {
+  builtin cd "$@"
+
+  if [[ -z "$VIRTUAL_ENV" ]] ; then
+    ## If env folder is found then activate the vitualenv
+      if [[ -d ./.venv ]] ; then
+        source ./.venv/bin/activate
+      fi
+  else
+    ## check the current folder belong to earlier VIRTUAL_ENV folder
+    # if yes then do nothing
+    # else deactivate
+      parentdir="$(dirname "$VIRTUAL_ENV")"
+      if [[ "$PWD"/ != "$parentdir"/* ]] ; then
+        deactivate
+      fi
+  fi
+}
+
+
+
 parse_git_branch() {
 	echo "$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /')"
 }
@@ -118,9 +139,14 @@ shopt -s checkwinsize
 # Tab complete in one tab instead of two
 set show-all-if-ambiguous on
 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 
 function pet-select() {
   BUFFER=$(pet search --query "$READLINE_LINE")
   READLINE_LINE=$BUFFER
   READLINE_POINT=${#BUFFER}
 }
+if [ -z "$TMUX" ]; then
+  neofetch
+fi

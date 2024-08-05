@@ -55,7 +55,6 @@ null_ls.setup({
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.isort,
         -- require("none-ls.diagnostics.ruff"),
-        null_ls.builtins.completion.spell,
     },
     -- you can reuse a shared lspconfig on_attach callback here
     on_attach = function(client, bufnr)

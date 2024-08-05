@@ -97,7 +97,7 @@ nnoremap <leader>s :%s/
 nnoremap <silent> <C-l> :nohl<CR>
 
 " Open Config
-nnoremap <silent> <leader>C :e ~/.config/vim/.vimrc<CR>
+nnoremap <silent> <leader>C :e ~/.config/nvim<CR>
 
 " Statusline setup with git branch
 set laststatus=2
@@ -113,7 +113,7 @@ endfunction
 set statusline=
 set statusline+=%{StatuslineGit()}
 set statusline+=\ %f
-set statusline+=%m\
+set statusline+=\ %#Type#%m
 set statusline+=%=
 set statusline+=%#CursorColumn#
 set statusline+=\ %y

@@ -30,15 +30,30 @@ require("lazy").setup({
         },
     },
     { "nvim-treesitter/nvim-treesitter" },
-    { "tpope/vim-fugitive" },
-    { "tpope/vim-surround" },
-    { "tpope/vim-commentary" },
+    { "tpope/vim-fugitive" },           -- git client
+    { "tpope/vim-surround" },           -- parenthesis shortcuts
+    { "tpope/vim-commentary" },         -- code comment shortcuts
     { "tpope/vim-sleuth" },             -- auto switches between spaces and tabs depending on file
+    { "tpope/vim-unimpaired" },         -- adds [q ]q for quickfix navigation
     { "lewis6991/gitsigns.nvim" },
     { "j-hui/fidget.nvim" },            -- shows progress and logging for lsps
     { "mbbill/undotree" },              -- show undo history in tree with :UndotreeToggle
     { "j-morano/buffer_manager.nvim" }, --fast file navigation with shortcuts
-    { 'norcalli/nvim-colorizer.lua' },
+    { 'norcalli/nvim-colorizer.lua' },  -- highlights html color coldes
+    {
+        "vimwiki/vimwiki",
+        init = function()
+            vim.g.vimwiki_list = {
+                {
+                    syntax = "markdown",
+                    ext = ".md",
+                    path = "~/notes/wiki"
+                },
+            }
+        end,
+    },
+
+    { "ElPiloto/telescope-vimwiki.nvim" },
 
     {
         -- This sets sensible defaults for running lsps
@@ -70,12 +85,6 @@ require("lazy").setup({
             }
         },
     },
-    { "nvimtools/none-ls.nvim" },
-    {
-        "lervag/vimtex",
-        init = function()
-            -- Use init for configuration, don't use the more common "config".
-        end
-    },
-    { "rebelot/kanagawa.nvim", lazy = false }
+    { "nvimtools/none-ls.nvim" }, -- Adds lsp like features to cli tools such as black, isort
+    { "rebelot/kanagawa.nvim",          lazy = false }
 })
