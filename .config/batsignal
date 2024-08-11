@@ -1,2 +1,4 @@
 # notify on charge/discharge
 -p
+-I
+/usr/share/icons/Adwaita/symbolic/status/battery-level-10-charging-symbolic.svg
