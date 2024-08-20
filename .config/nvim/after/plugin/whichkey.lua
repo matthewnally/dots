@@ -1,6 +1,6 @@
 local wk = require("which-key")
 
-wk.register({
+wk.add({
     { "<leader>C",  desc = "Configure Neovim" },
     { "<leader>d",  desc = "Delete (Dont Yank)" },
     { "<leader>f",  group = "Find" },

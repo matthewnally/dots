@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { "folke/which-key.nvim" },
     { "stevearc/oil.nvim" },    -- file mamanger based on vim vinegar
-    { "lambdalisue/suda.vim" }, -- write sudo file with :SudaWrite
+    { "lambdalisue/vim-suda" }, -- write sudo file with :SudaWrite
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.3',
@@ -31,6 +31,7 @@ require("lazy").setup({
     },
     { "nvim-treesitter/nvim-treesitter" },
     { "tpope/vim-fugitive" },           -- git client
+    { "Raimondi/delimitMate" },         -- insert mode parenthesis shortcuts
     { "tpope/vim-surround" },           -- parenthesis shortcuts
     { "tpope/vim-commentary" },         -- code comment shortcuts
     { "tpope/vim-sleuth" },             -- auto switches between spaces and tabs depending on file

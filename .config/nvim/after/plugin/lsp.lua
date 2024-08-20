@@ -15,7 +15,7 @@ end)
 
 require('mason').setup({ pip = { upgrade_pip = true } })
 require('mason-lspconfig').setup({
-    ensure_installed = { "pyright", "lua_ls", "bashls" },
+    ensure_installed = { "pyright", "ruff", "lua_ls", "bashls" },
     handlers = {
         lsp_zero.default_setup,
     },
@@ -31,7 +31,7 @@ require("mason-lspconfig").setup_handlers {
             settings = {
                 python = {
                     venvPath = ".",
-                    venv = "venv"
+                    venv = ".venv"
                 }
             }
         }

@@ -44,7 +44,6 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias diff='diff --color=auto'
 alias tree='tree -C'
 alias ping='ping -c'
-alias make='make --color'
 alias ip='ip -color=auto'
 
 
