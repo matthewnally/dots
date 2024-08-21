@@ -1,13 +1,7 @@
 local wk = require("which-key")
 
 wk.add({
-    { "<leader>C",  desc = "Configure Neovim" },
-    { "<leader>d",  desc = "Delete (Dont Yank)" },
-    { "<leader>f",  group = "Find" },
-    { "<leader>fh", desc = "Find Help" },
-    { "<leader>p",  group = "Problem" },
-    { "<leader>pf", desc = "Toggle Quickfix" },
-    { "<leader>s",  desc = "Find and Replace" },
-    { "<leader>x",  group = "Trouble" },
-    { "<leader>y",  desc = "Yank to clipboard" },
+    { "<leader>f", group = "Find" },
+    { "<leader>x", group = "Trouble" },
+    { "<leader>w", group = "Vimwiki" },
 })

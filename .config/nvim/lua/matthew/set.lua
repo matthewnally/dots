@@ -1,33 +1,40 @@
--- setting through vimrc
+-- Enable mouse
+vim.opt.mouse = "a"
 
---vim.opt.nu = true
---vim.opt.relativenumber = true
+-- Enable numbers and relative numbers
+vim.opt.nu = true
+vim.opt.relativenumber = true
 
---vim.opt.tabstop = 4
---vim.opt.softtabstop = 4
---vim.opt.shiftwidth = 4
---vim.opt.expandtab = true
+-- Reloads buffers if the file changes
+vim.opt.autoread = true
 
---vim.opt.smartindent = true
+-- Tab and indentation settings
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.smartindent = true
 
---vim.opt.wrap = false
+-- Disable line wrapping
+vim.opt.wrap = false
 
---vim.opt.swapfile = false
---vim.opt.backup = false
+-- Search settings
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+
+-- Enable true color support
+vim.opt.termguicolors = true
+
+-- Keep at least 8 lines above and below the cursor
+vim.opt.scrolloff = 8
+
+-- Open splits to the right and below
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- Set block and Insert Mode cursor
+-- vim.opt.guicursor = { "n-v-c:block", "i-ci:ver25", "r-cr:hor20", "o:hor50" }
+
+-- undodir
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
-
---vim.opt.hlsearch = true
---vim.opt.incsearch = true
-
---vim.opt.termguicolors = true
-
---vim.opt.scrolloff = 8
---vim.opt.signcolumn = "yes"
---vim.opt.isfname:append("@-@")
-
---vim.opt.updatetime = 50
-
---vim.opt.colorcolumn = "80"
---vim.cmd("highlight ColorColumn ctermbg=235 guibg=#262626")
---vim.g.netrw_liststyle = 3

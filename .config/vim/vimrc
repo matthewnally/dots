@@ -122,13 +122,3 @@ set statusline+=\[%{&fileformat}\]
 set statusline+=\ %p%%
 set statusline+=\ %l:%c
 set statusline+=\
-
-" Vim Specific Settings
-if !has('nvim')
-    nnoremap <tab> :bnext<CR>
-    nnoremap <s-tab> :bprev<CR>
-    augroup python
-        autocmd!
-        autocmd BufWritePre *.py :%!black - -q 2>/dev/null | isort - --profile=black 2>/dev/null
-    augroup end
-endif
