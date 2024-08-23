@@ -20,16 +20,16 @@ vim.api.nvim_set_keymap("n", "N", "Nzzzv", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-l>", ":nohl<CR>", { noremap = true, silent = true })
 
 -- Open Config
-vim.api.nvim_set_keymap("n", "<leader>C", ":e ~/.config/nvim/init.lua<CR>",
+vim.api.nvim_set_keymap("n", "<leader>C", ":e ~/.config/nvim/<CR>",
     { noremap = true, silent = true, desc = "Open Config" })
 
 
-vim.api.nvim_set_keymap("x", "<leader>p", "\"_dP",
-    { noremap = true, silent = true, desc = "Paste (Dont Yank)" })
-vim.api.nvim_set_keymap("n", "<leader>d", "\"_dP",
-    { noremap = true, silent = true, desc = "Delete (Dont Yank)" })
-vim.api.nvim_set_keymap("v", "<leader>d", "\"_dP",
-    { noremap = true, silent = true, desc = "Delete (Dont Yank)" })
+-- vim.api.nvim_set_keymap("x", "<leader>p", "\"_dP",
+--     { noremap = true, silent = true, desc = "Paste (Dont Yank)" })
+-- vim.api.nvim_set_keymap("n", "<leader>d", "\"_dP",
+--     { noremap = true, silent = true, desc = "Delete (Dont Yank)" })
+-- vim.api.nvim_set_keymap("v", "<leader>d", "\"_dP",
+--     { noremap = true, silent = true, desc = "Delete (Dont Yank)" })
 
 -- Yank text to the system clipboard
 vim.api.nvim_set_keymap("x", "<leader>y", "\"+y", { noremap = true, silent = true, desc = "Yank to system clipboard" })
