@@ -38,3 +38,7 @@ vim.opt.splitbelow = true
 -- undodir
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
+
+
+-- Color column
+vim.o.colorcolumn = "80"

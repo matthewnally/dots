@@ -1,5 +1,6 @@
 require("matthew.set")
 require("matthew.remap")
+require("matthew.statusline")
 
 local augroup = vim.api.nvim_create_augroup
 local MatthewGroup = augroup('Matthew', {})

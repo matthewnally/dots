@@ -99,6 +99,7 @@ function cd() {
   fi
 }
 
+cd .
 
 
 parse_git_branch() {
@@ -141,11 +142,3 @@ set show-all-if-ambiguous on
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANROFFOPT="-c"
 
-function pet-select() {
-  BUFFER=$(pet search --query "$READLINE_LINE")
-  READLINE_LINE=$BUFFER
-  READLINE_POINT=${#BUFFER}
-}
-if [ -z "$TMUX" ]; then
-  neofetch
-fi

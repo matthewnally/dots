@@ -3,6 +3,7 @@ return {
     lazy = false,
     config = function()
         require('kanagawa').setup({
+            transparent = false,
             dimInactive = false
         })
         vim.cmd("colorscheme kanagawa")
