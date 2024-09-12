@@ -16,16 +16,28 @@ function statusline_git()
     end
 end
 
+function get_fileencoding()
+    local file_encoding = '%{&fileencoding}'
+    if #file_encoding > 0 then
+        return '[' .. file_encoding .. '] '
+    else
+        return ''
+    end
+end
+
 vim.opt.statusline = table.concat({
     -- '%#Type#',                   -- Changes to Type highlight Group
-    '%#CursorColumn#',           -- Changes to CursorColomn highlight Group
-    '%{v:lua.statusline_git()}', -- git branch
-    '%f',                        -- filename
-    '%#Type#%m',                 -- unsaved indicator (Type) hg group
-    '%=',                        -- ALigns rest of elements to right
-    '%#CursorColumn#',           -- Changes to CursorColomn highlight Group
-    ' %y',                       -- filetype
-    '[%{&fileencoding}]',        -- file encoding UTF-8, ascii
-    '[%{&fileformat}]',          -- file format UNIX LF, CRLF
-    ' %l:%c'                     -- line and column
+    -- '%#CursorColumn#',           -- Changes to CursorColomn highlight Group
+    '%#Normal#',                                                 -- Changes to Normal highlight Group
+    '%{v:lua.statusline_git()}',                                 -- git branch
+    '%f',                                                        -- filename
+    '%#Type#%m',                                                 -- unsaved indicator (Type) hg group
+    '%=',                                                        -- ALigns rest of elements to right
+    -- '%#CursorColumn#',           -- Changes to CursorColomn highlight Group
+    '%#Normal#',                                                 -- Changes to Normal highlight Group
+    ' %y',                                                       -- filetype
+    -- '[%{&fileencoding}]',        -- file encoding UTF-8, ascii
+    '%{&fileencoding != "" ? "[" .. &fileencoding .. "]" : ""}', -- file encoding (only show if not blank)
+    '[%{&fileformat}]',                                          -- file format UNIX LF, CRLF
+    ' %l:%c'                                                     -- line and column
 }, '')
