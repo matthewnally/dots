@@ -15,9 +15,11 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.smartindent = true
 
--- Disable line wrapping
-vim.opt.wrap = false
-
+-- line wrapping
+vim.opt.wrap = true
+vim.opt.linebreak = true
+vim.opt.showbreak = "> "
+vim.opt.breakindent = true
 -- Search settings
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
@@ -51,8 +53,6 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "markdown",
     callback = function()
-        vim.wo.wrap = true        -- Enable word wrap
-        vim.wo.linebreak = true   -- Break lines at word boundaries
-        vim.wo.breakindent = true -- Maintain indentation on wrapped lines
+        vim.wo.showbreak = ""
     end,
 })

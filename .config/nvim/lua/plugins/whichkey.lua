@@ -5,6 +5,7 @@ return {
         spec = {
             { "<leader>f", group = "Find" },
             { "<leader>x", group = "Trouble" },
+            { "<leader>n", group = "Notes" },
         }
     }
 }
