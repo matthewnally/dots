@@ -4,8 +4,7 @@ return {
         workspaces = {
             {
                 name = "notes",
-                -- path = "~/notes/notes",
-                path = "~/notes/notes",
+                path = "~/notes",
             },
         },
         -- Optional, customize how note IDs are generated given an optional title.
@@ -31,12 +30,21 @@ return {
             local iso_time = os.date("!%Y%m%dT%H%M%S", time)
             return iso_time .. "-" .. suffix
         end,
+        ---@param url string
+        follow_url_func = function(url)
+            -- Open the URL in the default web browser.
+            -- vim.fn.jobstart({ "open", url }) -- Mac OS
+            vim.fn.jobstart({ "xdg-open", url }) -- linux
+            -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+            -- vim.ui.open(url) -- need Neovim 0.10.0+
+        end,
     },
     keys = {
-        { "<leader>nf", "<cmd>ObsidianQuickSwitch<cr>",          desc = "Find Notes" },
-        { "<leader>nr", "<cmd>ObsidianSearch<cr>",               desc = "Find in Notes" },
-        { "<leader>nt", "<cmd>ObsidianTags<cr>",                 desc = "Search Tags" },
-        { "<leader>nn", "<cmd>:e ~/notes/notes/Fleeting.md<cr>", desc = "Open Fleeting Note" },
+        { "<leader>nf", "<cmd>ObsidianQuickSwitch<cr>",    desc = "Find Notes" },
+        { "<leader>fn", "<cmd>ObsidianQuickSwitch<cr>",    desc = "Find Notes" },
+        { "<leader>nr", "<cmd>ObsidianSearch<cr>",         desc = "Find in Notes" },
+        { "<leader>nt", "<cmd>ObsidianTags<cr>",           desc = "Search Tags" },
+        { "<leader>nn", "<cmd>:e ~/notes/Fleeting.md<cr>", desc = "Open Fleeting Note" },
 
     },
     config = function(_, opts)

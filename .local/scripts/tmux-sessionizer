@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~ ~/dev ~/dev/git ~/dev/ext_git ~/dev/godot  -mindepth 1 -maxdepth 1 -type d | fzf --tmux 60%)
+    selected=$(find ~ ~/dev ~/dev/git ~/dev/ext_git  -mindepth 1 -maxdepth 1 -type d | fzf --tmux 60%)
 fi
 
 if [[ -z $selected ]]; then
