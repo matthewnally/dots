@@ -31,6 +31,7 @@ vim.opt.statusline = table.concat({
     '%#Normal#',                                                 -- Changes to Normal highlight Group
     '%{v:lua.statusline_git()}',                                 -- git branch
     '%f',                                                        -- filename
+    '%{get(b:,"gitsigns_status","")}',                           -- get git adds, removed, changes, requires gitsigns, blank otherwise
     '%#Type#%m',                                                 -- unsaved indicator (Type) hg group
     '%=',                                                        -- ALigns rest of elements to right
     -- '%#CursorColumn#',           -- Changes to CursorColomn highlight Group

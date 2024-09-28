@@ -11,6 +11,8 @@ vim.api.nvim_set_keymap("v", "K", ":m '<-2<CR>gv=gv",
 -- Center cursor while half page jumping
 vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-f>", "<C-f>zz", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-b>", "<C-b>zz", { noremap = true, silent = true })
 
 -- Center cursor while searching
 vim.api.nvim_set_keymap("n", "n", "nzzzv", { noremap = true, silent = true })
