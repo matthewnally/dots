@@ -45,5 +45,8 @@ vim.api.nvim_set_keymap("x", "<leader>s", "y:%s/<C-r>\"/<C-r>\"/gI<Left><Left><L
 -- Open a find and replace prompt
 vim.api.nvim_set_keymap("n", "<leader>s", ":%s/", { noremap = true, silent = true, desc = "Find and replace" })
 
--- detab
+-- detab in insert mode
 vim.api.nvim_set_keymap('i', '<S-Tab>', '<C-D>', { noremap = true, silent = true })
+
+-- vim tabs, create mew
+vim.api.nvim_set_keymap("n", "<leader>t", "<cmd>tabnew<cr>", { noremap = true, silent = true, desc = "Open new tab" })

@@ -18,7 +18,12 @@ return {
             },
             mapping = cmp.mapping.preset.insert({
                 ['<tab>'] = cmp.mapping.confirm({ select = false }),
-            })
+            }),
+            sources = {
+                { name = "nvim_lsp" },
+                { name = "path" },
+                { name = "buffer" },
+            }
         })
         vim.api.nvim_create_autocmd("FileType", {
             pattern = { "sql", "mysql", "plsql" },

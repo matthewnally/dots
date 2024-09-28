@@ -30,6 +30,7 @@
     "format": "{id}: {windows}",
     "window-rewrite": {
       "bitwarden": "󱕴",
+      "chromium": "",
       "darktable": "󰄄",
       "docker": "",
       "firefox": "",

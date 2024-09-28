@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME status --untracked-files=normal --porcelain | grep '??' | sed 's/^?? //g' | sed 's/"//g' >> .gitignore
-# sort -u .gitignore -o .gitignore
+/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME status --untracked-files=normal --porcelain | grep '??' | sed 's/^?? //g' | sed 's/"//g' >> $HOME/.cfg/info/exclude
+sort -u $HOME/.cfg/info/exclude -o $HOME/.cfg/info/exclude

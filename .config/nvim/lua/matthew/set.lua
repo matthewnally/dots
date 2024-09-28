@@ -43,16 +43,4 @@ vim.opt.undofile = true
 
 -- for obsidian nvim
 vim.opt.conceallevel = 2
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "sql",
-    callback = function()
-        vim.bo.commentstring = "-- %s"
-    end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "markdown",
-    callback = function()
-        vim.wo.showbreak = ""
-    end,
-})
+-- vim.opt.vim_json_syntax_conceal = 0
